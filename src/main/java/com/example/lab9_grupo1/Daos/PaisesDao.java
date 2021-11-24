@@ -73,13 +73,13 @@ public class PaisesDao extends BaseDao {
         return true;
     }
 
-    public void eliminarPaises(Paises pais) {
+    public void eliminarPaises(String nombrePais) {
         String sql = ""; // query respectivo, se usa delete from y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-            pstmt.setString(1, pais.getNombre_pais());
+            pstmt.setString(1, nombrePais);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
