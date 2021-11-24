@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class PaisesDao extends BaseDao {
 
-    public ArrayList<Paises> listaPaisesContinente(String nombre, String continente, double poblacion, double tamano) {
+    public ArrayList<Paises> listaPaisesContinente(int idPais, String nombre, String continente, double poblacion, double tamano) {
 
         ArrayList<Paises> listaPaisesPorContinente = new ArrayList<>();
 

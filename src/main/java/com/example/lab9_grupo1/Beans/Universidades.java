@@ -1,11 +1,20 @@
 package com.example.lab9_grupo1.Beans;
 
 public class Universidades {
+    private int idUniversidad;
     private String nombre_universidad;
     private String pais_universidad;
     private int ranking;
     private int numero_alumnos;
     private String foto_universidad;
+
+    public int getIdUniversidad() {
+        return idUniversidad;
+    }
+
+    public void setIdUniversidad(int idUniversidad) {
+        this.idUniversidad = idUniversidad;
+    }
 
     public String getNombre_universidad() {
         return nombre_universidad;
@@ -46,4 +55,5 @@ public class Universidades {
     public void setFoto_universidad(String foto_universidad) {
         this.foto_universidad = foto_universidad;
     }
+
 }

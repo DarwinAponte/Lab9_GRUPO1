@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ParticipantesDao extends BaseDao{
 
-    public ArrayList<Participantes> listaParticipantes(String nombre, String apellido, int edad, String nacionalidad, String gender) {
+    public ArrayList<Participantes> listaParticipantes(int idParticipante, String nombre, String apellido, int edad, String nacionalidad, String gender) {
 
         ArrayList<Participantes> listaParticipantes = new ArrayList<>();
 
