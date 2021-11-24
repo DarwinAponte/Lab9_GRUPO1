@@ -8,7 +8,7 @@ public class PaisesDao extends BaseDao {
 
     public ArrayList<Paises> listaPaisesContinente(String nombre, String continente, double poblacion, double tamano) {
 
-        ArrayList<Paises> listaPaises = new ArrayList<>();
+        ArrayList<Paises> listaPaisesPorContinente = new ArrayList<>();
 
         String sql = ""; // query que permita filtrar paises x continente
 
@@ -22,14 +22,14 @@ public class PaisesDao extends BaseDao {
                 pais.setNombre_pais(rs.getString(2));
                 pais.setPoblacion(rs.getDouble(3));
                 pais.setTamano_pais(rs.getDouble(4));
-                listaPaises.add(pais);
+                listaPaisesPorContinente.add(pais);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return listaPaises;
+        return listaPaisesPorContinente;
     }
 
     public boolean agregarPaises(Paises pais) { //retorna falso si surge una excepcion
