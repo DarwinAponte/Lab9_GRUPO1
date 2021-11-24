@@ -1,4 +1,4 @@
-package com.example.lab9_grupo1.beans;
+package com.example.lab9_grupo1.Beans;
 
 public class Participantes {
     private String nombre;

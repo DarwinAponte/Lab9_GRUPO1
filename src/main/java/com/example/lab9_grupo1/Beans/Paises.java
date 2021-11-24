@@ -1,9 +1,9 @@
-package com.example.lab9_grupo1.beans;
+package com.example.lab9_grupo1.Beans;
 
 public class Paises {
     private String nombre_pais;
     private String continente;
-    private String poblacion;
+    private double poblacion;
     private double tamano_pais;
 
     public String getNombre_pais() {
@@ -22,11 +22,11 @@ public class Paises {
         this.continente = continente;
     }
 
-    public String getPoblacion() {
+    public double getPoblacion() {
         return poblacion;
     }
 
-    public void setPoblacion(String poblacion) {
+    public void setPoblacion(double poblacion) {
         this.poblacion = poblacion;
     }
 
