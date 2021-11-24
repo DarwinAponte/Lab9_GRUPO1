@@ -1,5 +1,6 @@
 package com.example.lab9_grupo1.Daos;
-import com.example.lab9_grupo1.Beans.Paises;
+
+import com.example.lab9_grupo1.Beans.*;
 
 import java.sql.*;
 import java.util.ArrayList;
