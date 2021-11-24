@@ -1,11 +1,20 @@
 package com.example.lab9_grupo1.Beans;
 
 public class Participantes {
+    private int idParticipante;
     private String nombre;
     private String apellido;
     private int edad;
     private String nacionalidad;
     private String gender;
+
+    public int getIdParticipante() {
+        return idParticipante;
+    }
+
+    public void setIdParticipante(int idParticipante) {
+        this.idParticipante = idParticipante;
+    }
 
     public String getNombre() {
         return nombre;
