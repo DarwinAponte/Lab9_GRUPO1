@@ -1,11 +1,12 @@
 package com.example.lab9_grupo1.beans;
 
-public class Participantes {
+public class Alumnos {
     private String nombre;
     private String apellido;
     private int edad;
-    private String nacionalidad;
-    private String gender;
+    private int codigo;
+    private double ponderado;
+    private boolean condicion;
 
     public String getNombre() {
         return nombre;
@@ -31,19 +32,27 @@ public class Participantes {
         this.edad = edad;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public String getGender() {
-        return gender;
+    public double getPonderado() {
+        return ponderado;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPonderado(double ponderado) {
+        this.ponderado = ponderado;
+    }
+
+    public boolean isCondicion() {
+        return condicion;
+    }
+
+    public void setCondicion(boolean condicion) {
+        this.condicion = condicion;
     }
 }
