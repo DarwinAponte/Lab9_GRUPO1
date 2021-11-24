@@ -1,17 +1,17 @@
 package com.example.lab9_grupo1.Beans;
 
 public class Paises {
-    private String idPais;
+    private int idPais;
     private String nombre_pais;
     private String continente;
     private double poblacion;
     private double tamano_pais;
 
-    public String getIdPais() {
+    public int getIdPais() {
         return idPais;
     }
 
-    public void setIdPais(String idPais) {
+    public void setIdPais(int idPais) {
         this.idPais = idPais;
     }
 

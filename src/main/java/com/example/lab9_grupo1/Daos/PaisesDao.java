@@ -19,10 +19,11 @@ public class PaisesDao extends BaseDao {
 
             while (rs.next()) {
                 Paises pais = new Paises();
-                pais.setNombre_pais(rs.getString(1));
+                pais.setIdPais(rs.getInt(1));
                 pais.setNombre_pais(rs.getString(2));
-                pais.setPoblacion(rs.getDouble(3));
-                pais.setTamano_pais(rs.getDouble(4));
+                pais.setNombre_pais(rs.getString(3));
+                pais.setPoblacion(rs.getDouble(4));
+                pais.setTamano_pais(rs.getDouble(5));
                 listaPaisesPorContinente.add(pais);
             }
 
@@ -40,10 +41,11 @@ public class PaisesDao extends BaseDao {
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-            pstmt.setString(1, pais.getNombre_pais());
-            pstmt.setString(2, pais.getContinente());
-            pstmt.setDouble(3, pais.getPoblacion());
-            pstmt.setDouble(4, pais.getTamano_pais());
+            pstmt.setInt(1, pais.getIdPais());
+            pstmt.setString(2, pais.getNombre_pais());
+            pstmt.setString(3, pais.getContinente());
+            pstmt.setDouble(4, pais.getPoblacion());
+            pstmt.setDouble(5, pais.getTamano_pais());
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -60,10 +62,11 @@ public class PaisesDao extends BaseDao {
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-            pstmt.setString(1, pais.getNombre_pais());
-            pstmt.setString(2, pais.getContinente());
-            pstmt.setDouble(3, pais.getPoblacion());
-            pstmt.setDouble(4, pais.getTamano_pais());
+            pstmt.setInt(1, pais.getIdPais());
+            pstmt.setString(2, pais.getNombre_pais());
+            pstmt.setString(3, pais.getContinente());
+            pstmt.setDouble(4, pais.getPoblacion());
+            pstmt.setDouble(5, pais.getTamano_pais());
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -73,13 +76,13 @@ public class PaisesDao extends BaseDao {
         return true;
     }
 
-    public void eliminarPaises(String nombrePais) {
+    public void eliminarPaises(int idPais) {
         String sql = ""; // query respectivo, se usa delete from y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-            pstmt.setString(1, nombrePais);
+            pstmt.setInt(1, idPais);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
