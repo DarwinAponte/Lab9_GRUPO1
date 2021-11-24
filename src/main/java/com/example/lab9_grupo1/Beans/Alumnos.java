@@ -1,12 +1,18 @@
 package com.example.lab9_grupo1.Beans;
 
-public class Alumnos {
-    private String nombre;
-    private String apellido;
-    private int edad;
+public class Alumnos extends Participantes{
+    private int idAlumno;
     private int codigo;
     private double ponderado;
     private boolean condicion;
+
+    public int getIdAlumno() {
+        return idAlumno;
+    }
+
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
+    }
 
     public String getNombre() {
         return nombre;
@@ -55,4 +61,5 @@ public class Alumnos {
     public void setCondicion(boolean condicion) {
         this.condicion = condicion;
     }
+
 }
