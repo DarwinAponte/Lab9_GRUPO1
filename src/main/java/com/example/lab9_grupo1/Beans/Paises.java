@@ -1,10 +1,19 @@
 package com.example.lab9_grupo1.Beans;
 
 public class Paises {
+    private String idPais;
     private String nombre_pais;
     private String continente;
     private double poblacion;
     private double tamano_pais;
+
+    public String getIdPais() {
+        return idPais;
+    }
+
+    public void setIdPais(String idPais) {
+        this.idPais = idPais;
+    }
 
     public String getNombre_pais() {
         return nombre_pais;
