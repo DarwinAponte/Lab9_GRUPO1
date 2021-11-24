@@ -11,7 +11,7 @@ public class PaisesDao extends BaseDao {
 
         ArrayList<Paises> listaPaisesPorContinente = new ArrayList<>();
 
-        String sql = ""; // query que permita filtrar paises x continente
+        String sql = "select * from paises order by continente asc"; // query que permita filtrar paises x continente
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
@@ -36,7 +36,8 @@ public class PaisesDao extends BaseDao {
 
     public boolean agregarPaises(Paises pais) { //retorna falso si surge una excepcion
 
-        String sql = ""; // query respectivo, es con insert into y values
+        String sql = "INSERT INTO paises(idpaises, nombre, poblacion, tamaño, idcontientes)\n" +
+                "VALUES (?,?,?,?,?,?)"; // query respectivo, es con insert into y values
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -57,7 +58,7 @@ public class PaisesDao extends BaseDao {
     }
 
     public boolean editarPaises(Paises pais) {
-        String sql = ""; // query respectivo, es con update, set y where
+        String sql = "UPDATE paises set idpaises=?, nombre=?, poblacion=?, tamaño=?, idcontinentes=?"; // query respectivo, es con update, set y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -77,7 +78,7 @@ public class PaisesDao extends BaseDao {
     }
 
     public void eliminarPaises(int idPais) {
-        String sql = ""; // query respectivo, se usa delete from y where
+        String sql = "delete from universidades where (iduniversidades=?)"; // query respectivo, se usa delete from y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {

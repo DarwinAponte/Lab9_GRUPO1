@@ -11,7 +11,7 @@ public class UniversidadesDao extends BaseDao {
 
         ArrayList<Universidades> listaUniversidadesRanking = new ArrayList<>();
 
-        String sql = ""; // query que permita mostrar universidades por ranking
+        String sql = "select * from universidades order by ranking desc"; // query que permita mostrar universidades por ranking
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
@@ -38,7 +38,8 @@ public class UniversidadesDao extends BaseDao {
 
     public boolean agregarUniversidades(Universidades universidades) { //retorna falso si surge una excepcion
 
-        String sql = ""; // query respectivo, es con insert into y values
+        String sql = "INSERT INTO universidades(iduniversidades, nombre, ranking, numeroalumnos, foto, idpaises)\n" +
+                "VALUES (?,?,?,?,?,?)"; // query respectivo, es con insert into y values
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -60,11 +61,10 @@ public class UniversidadesDao extends BaseDao {
     }
 
     public boolean editarUniversidades(Universidades universidades) {
-        String sql = ""; // query respectivo, es con update, set y where
+        String sql = "UPDATE universidades set iduniversidades=?, nombre=?, ranking=?, numeroalumnos=?, foto=?, idpaises=?";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
-
             pstmt.setInt(1, universidades.getIdUniversidad());
             pstmt.setString(2, universidades.getNombre_universidad());
             pstmt.setString(3, universidades.getPais_universidad());
@@ -81,7 +81,7 @@ public class UniversidadesDao extends BaseDao {
     }
 
     public void eliminarUniversidades(int idUniversidad) {
-        String sql = ""; // query respectivo, se usa delete from y where
+        String sql = "delete from universidades where (iduniversidades=?)"; // query respectivo, se usa delete from y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {

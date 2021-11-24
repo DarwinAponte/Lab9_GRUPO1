@@ -11,7 +11,7 @@ public class ParticipantesDao extends BaseDao{
 
         ArrayList<Participantes> listaParticipantes = new ArrayList<>();
 
-        String sql = ""; // query que permita mostrar participantes
+        String sql = "select * from participantes"; // query que permita mostrar participantes
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
@@ -37,7 +37,8 @@ public class ParticipantesDao extends BaseDao{
 
     public boolean agregarParticipantes(Participantes participantes) { //retorna falso si surge una excepcion
 
-        String sql = ""; // query respectivo, es con insert into y values
+        String sql = "INSERT INTO participantes(idparticipantes, nombre, apellido, edad, genero, idpaises)\n" +
+                "VALUES (?,?,?,?,?,?)"; // query respectivo, es con insert into y values
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -59,7 +60,7 @@ public class ParticipantesDao extends BaseDao{
     }
 
     public boolean editarParticipantes(Participantes participantes) {
-        String sql = ""; // query respectivo, es con update, set y where
+        String sql = "UPDATE participantes set idparticipantes=?, nombre=?, apellido=?, edad=?, genero=?, idpaises=?"; // query respectivo, es con update, set y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -80,7 +81,7 @@ public class ParticipantesDao extends BaseDao{
     }
 
     public void eliminarParticipantes(int idParticipante) {
-        String sql = ""; // query respectivo, se usa delete from y where
+        String sql = "delete from participantes where (idparticipantes=?)"; // query respectivo, se usa delete from y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {

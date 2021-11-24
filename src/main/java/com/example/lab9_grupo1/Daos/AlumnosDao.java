@@ -11,7 +11,7 @@ public class AlumnosDao extends ParticipantesDao{
 
         ArrayList<Alumnos> listaAlumnosPromPond = new ArrayList<>();
 
-        String sql = ""; // query que permita mostrar alumnos x ponderado
+        String sql = "select * from alumnos order by promedio desc;"; // query que permita mostrar alumnos x ponderado
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
@@ -40,7 +40,8 @@ public class AlumnosDao extends ParticipantesDao{
 
     public boolean agregarAlumnos(Alumnos alumnos) { //retorna falso si surge una excepcion
 
-        String sql = ""; // query respectivo, es con insert into y values
+        String sql = "INSERT INTO alumnos (idalumnos, nombre, apellido, edad, codigo, promedio, condicion, iduniversidades)\n" +
+                "VALUES (?,?,?,?,?,?,?,?)"; // query respectivo, es con insert into y values
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -63,7 +64,7 @@ public class AlumnosDao extends ParticipantesDao{
     }
 
     public boolean editarAlumnos(Alumnos alumnos) {
-        String sql = ""; // query respectivo, es con update, set y where
+        String sql = "UPDATE alumnos set idalumnos=?, nombre=?, apellido=?, edad=?, codigo=?, promedio=?, condicion=?, iduniversidades=?";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -85,7 +86,7 @@ public class AlumnosDao extends ParticipantesDao{
     }
 
     public void eliminarAlumnos(int idAlumnos) {
-        String sql = ""; // query respectivo, se usa delete from y where
+        String sql = "delete from alumno where (idalumnos=?)"; // query respectivo, se usa delete from y where
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
