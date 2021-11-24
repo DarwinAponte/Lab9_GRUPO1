@@ -2,9 +2,9 @@ package com.example.lab9_grupo1.Beans;
 
 public class Participantes {
     private int idParticipante;
-    private String nombre;
-    private String apellido;
-    private int edad;
+    protected String nombre;
+    protected String apellido;
+    protected int edad;
     private String nacionalidad;
     private String gender;
 
